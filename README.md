@@ -1,4 +1,4 @@
-#Intranet de Sistema de Almoxarifado
+# Intranet do Sistema de Almoxarifado
 
 Projeto Integrador (TCC) do Técnico em Informática.
 
