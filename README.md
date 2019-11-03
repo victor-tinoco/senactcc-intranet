@@ -25,7 +25,8 @@ Neste repositório se encontra o sistema web intranet.
 Usamos o Git para controles de versão. Inicialmente o projeto foi estruturado e desenvolvido num [repositório](https://dev.azure.com/teambluescreen/Projeto%20Integrador/_git/Intranet) no Azure Repos, que posteriormente foi importado aqui.
 
 ## Autores
-- **Victor Martins** - [victrmart](https://github.com/victrmart/)
+- **Victor Martins Tinoco** - [victrmart](https://github.com/victrmart/)
+- **Gabriel Yago Luz** - [gabrielluz23](https://github.com/gabrielluz23/)
 
 Veja também a [lista](https://www.linkedin.com/in/victormartinstinoco/detail/project/924880102/contributors/) de colaboradores que participaram deste projeto.
 
