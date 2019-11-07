@@ -1,0 +1,85 @@
+/*COR DAS BARRAS*/
+
+.active-orange input[type=text] {
+    border-bottom: 1px solid #EE9A00;
+    box-shadow: 0 1px 0 0 #EE9A00;
+    outline: none;
+}
+
+.active-orange-2 input[type=text] {
+    border-bottom: 1px solid #EE9A00;
+    box-shadow: 0 1px 0 0 #EE9A00;
+}
+
+/*IMAGEM DE FUNDO*/
+
+/* RODAPÉ */
+
+/* Só ter imagem de fundo caso esteja maior que o sm (mobile) :D */
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+
+@media only screen and (min-width: 576px) {
+    body {
+        clear: both;  
+        background: url(../IMG/imgbackground.jpg) center center fixed;
+        background-size:cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        -khtml-background-size: cover;
+        -moz-background-size: cover;
+        min-height:100% !important;
+    }
+
+    .instructions {
+        font-size: 14px !important;
+    }
+
+    .confirm-button {
+        margin-top: 8px 0 0;
+    }
+}
+
+.site-footer {
+background: rgba(0,0,0,0.4);
+color: #dbdbdb;
+height: 25px;
+position: fixed;
+width: 100%;
+bottom: 0;
+text-align: left;
+padding-right: 16px;  
+font-size: 12px
+}
+
+
+/* correções */
+.instructions {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.inst-link, .inst-link:hover, .inst-link:active, .inst-link:focus {
+    color: #005593;
+}
+
+.confirm-button {
+    margin-top: 100px;
+}
+
+.confirm-button, .confirm-button:hover, .confirm-button:active, .confirm-button:focus {
+    background-color: #005593;
+    color: white;
+    font-size: 18px;
+    font-weight: lighter;
+    outline: none;
+    text-decoration: none
+}
+
+.confirm-button:hover, .confirm-button:active, .confirm-button:focus {
+    background-color: #004272
+}

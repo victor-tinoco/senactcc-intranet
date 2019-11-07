@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style-index.css">
+    <title>Entrar na sua conta Senac</title>
+    <link rel="icon" type="imagem/png" href="/IMG/icon.png" />
+
+</head>
+
+<body>
+    <!-- Desk Version -->
+    <div class="d-none d-sm-block">
+        <!--CENTRALIZAR O LOGIN-->
+        <div class="d-flex align-items-center justify-content-center h-100 w-100 position-fixed">
+            <!--AREA DO LOGIN-->
+            <div style="background-color: white" >
+                <div class="p-4">
+                    <h2 style="color: rgb(59, 59, 59)">
+                        Entrar
+                    </h2>
+
+                    <form action="formLogin" id="formLogin">
+                        <div class="md-form active-orange-2 mb-3">
+                            <input class="border border-0 w-100" type="text" placeholder="E-mail" aria-label="E-mail"id="Login">
+                        </div>
+                        <div class="md-form active-orange-2 mb-3">
+                            <input class="border border-0 w-100" type="password" placeholder="Senha" aria-label="Senha" id="Senha">
+                        </div>
+                        <div class="d-flex instructions">
+                            Não tem uma conta?<br><a class="pl-1 inst-link" href="#">Entre em contato com um administrador!</a>
+                        </div>
+                        <div class="instructions ">
+                            <a class="inst-link" href="#">Esqueci minha Senha</a>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <input type="submit" value="Proximo" class=" border-0 mt-2 px-3 py-1 confirm-button">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--RODAPÉ-->
+        <footer class="site-footer d-flex justify-content-end align-items-center">
+        <div>@2019 Senac</div>
+        </footer>
+    </div>
+
+
+    <!-- Mobile Version -->
+    <div class="d-block d-sm-none">
+            <div class="p-2">
+                <h3 style="color: rgb(59, 59, 59)">
+                    Entrar
+                </h3>
+
+                <form action="formLogin" id="formLogin">
+                    <div class="md-form active-orange-2 mb-3">
+                        <input class="border border-0 w-100" type="text" placeholder="E-mail" aria-label="E-mail" id="Login">
+                    </div>
+                    <div class="md-form active-orange-2 mb-3">
+                        <input class="border border-0 w-100" type="text" placeholder="Senha" aria-label="Senha" id="Senha">
+                    </div>
+                    <div class="d-flex instructions">
+                        Não tem uma conta?<br><a class="pl-1 inst-link" href="#">Entre em contato com um administrador!</a>
+                    </div>
+                    <div>
+                        <a class="instructions inst-link" href="#">Esqueci minha Senha</a>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <a class="confirm-button border-0 rounded px-3 py-1" id="btnLogin">Próximo</a>
+                    </div>
+                </form>
+            </div>
+    </div>
+    <script src="JS/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+        <script   src="JS/script-login.js"> </script>
+        <script src="JS/js.cookie.min.js"></script>
+        <script src="JS/materialize.min.js"></script>
+</body>
+
+</html>
