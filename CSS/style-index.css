@@ -1,21 +1,12 @@
-/*COR DAS BARRAS*/
 
-.active-orange input[type=text] {
+h2 {
+    margin-bottom: 20px;
+}
+
+.active-orange{
     border-bottom: 1px solid #EE9A00;
-    box-shadow: 0 1px 0 0 #EE9A00;
     outline: none;
 }
-
-.active-orange-2 input[type=text] {
-    border-bottom: 1px solid #EE9A00;
-    box-shadow: 0 1px 0 0 #EE9A00;
-}
-
-/*IMAGEM DE FUNDO*/
-
-/* RODAPÉ */
-
-/* Só ter imagem de fundo caso esteja maior que o sm (mobile) :D */
 
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
@@ -67,17 +58,17 @@ font-size: 12px
     color: #005593;
 }
 
-.confirm-button {
-    margin-top: 100px;
-}
-
 .confirm-button, .confirm-button:hover, .confirm-button:active, .confirm-button:focus {
     background-color: #005593;
     color: white;
     font-size: 18px;
     font-weight: lighter;
     outline: none;
-    text-decoration: none
+    text-decoration: none;
+}
+
+.confirm-button:hover{
+    cursor: pointer;
 }
 
 .confirm-button:hover, .confirm-button:active, .confirm-button:focus {
