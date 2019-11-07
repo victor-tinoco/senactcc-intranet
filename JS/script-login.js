@@ -16,14 +16,13 @@ $('#formLogin').submit(function (form)
         success: function(dados){
             Cookies.set('site_autenticado',dados.Token,{expires: 1})
             window.location.href = urlSite+ 'equipamentos.html';
-
         },
         error: function(data){
             if(data.status == 401){
-                M.toast({html: "Usuario e/ou senha invalidos"})
+                window.alert("Usuario e/ou senha invalidos");
             }
             else {
-                M.toast({html: "Ocorreu um erro ao efutuar o login"})
+                window.alert("Ocorreu um erro ao efutuar o login");
             }
         },
         beforeSend: function(){
