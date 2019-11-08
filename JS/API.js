@@ -9,6 +9,7 @@ function ApiEquipamento() {
     api.Listar = function (filtro, categoria, iniciopag, fimpag, acaoSucesso, acaoErro) {
         $.ajax({
             url: urlBaseApiEquipamento + "?filtro=" + filtro + "&categoria=" + categoria + "&iniciopag=" + iniciopag + "&fimpag=" + fimpag,
+            contentType: 'application/json',
             method: "GET",
             success: function (data) { acaoSucesso(data); },
             error: function (data) { acaoErro(data); }
