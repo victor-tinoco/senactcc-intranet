@@ -18,12 +18,14 @@ $('#formLogin').submit(function (form)
             window.location.href = urlSite+ 'equipamentos.html';
         },
         error: function(data){
+
             if(data.status == 401){
                 window.alert("Usuario e/ou senha invalidos");
             }
             else {
                 window.alert("Ocorreu um erro ao efutuar o login");
             }
+            $('#Senha').val('')
         },
         beforeSend: function(){
             $('.confirm-button').attr('disabled','disabled');
