@@ -1,4 +1,3 @@
-
 function equipMobile() {
     window.location.replace("mobileAgendamento.html");
 }
@@ -37,36 +36,27 @@ function LoadEquipError(data) {
 }
 
 
+
+// Search container 
 $(document).ready(function () {
 
     $(".searchInput").click(function () {
         $(".searchInput").addClass("expanded");
-    });
+        $("#search-icon").hide();
+        $("#back-icon").show();
+    })
 
     $(".searchInput").blur(function () {
         $(".searchInput").removeClass("expanded");
-    });
-
-});
-
-$(document).ready(function () {
-
-    $(".searchInput").click(function () {
-        $("#search-icon").hide();
-        $("#back-icon").show();
-    });
-
-    $(".searchInput").blur(function () {
         $("#back-icon").hide();
         $("#search-icon").show();
-    });
+    })
+
+    // Não está funcionando
+    $('.search-icon-container').click(function () {
+        $('.searchInput').val('')
+    })
 });
-
-function reset() {
-    document.getElementById("searchInput").value = "";
-    document.getElementById("title").focus();
-}
-
 
 // 'Equipamentos para a vMobile'
 // $(document).ready(function () {
