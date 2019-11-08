@@ -144,15 +144,11 @@ div.meuDropDown.show{
   width:  100%;
 }
 
-table th
-
-
-
-
 
 /* MOBILE SITE */
 @media only screen and (max-width: 768px) {
-a {
+
+  a {
     color: white;
     text-decoration: none;
   }
@@ -249,33 +245,33 @@ a {
   }
 
   
-  
   /* Mobile filter css*/
 
-.drop-filter {
-    background-color: #e2e2e2;
-    border-radius: 0;
-    color: #005593;
-    border: #005593 1px solid;
-}
+  .drop-filter {
+      background-color: #e2e2e2;
+      border-radius: 0;
+      color: #005593;
+      border: #005593 1px solid;
+  }
 
-.drop-filter hr {
-    border-color: #005593;
-}
+  .drop-filter hr {
+      border-color: #005593;
+  }
 
-.drop-filter a {
-    color:#005593;
-    font-size: 16px
-}
+  .drop-filter a {
+      color:#005593;
+      font-size: 16px
+  }
 
-.drop-filter a:active,.drop-filter a:focus,.drop-filter a:hover {
-    background-color: #005593;
-    color: #e2e2e2;
-    text-decoration: none
-}
+  .drop-filter a:active,.drop-filter a:focus,.drop-filter a:hover {
+      background-color: #005593;
+      color: #e2e2e2;
+      text-decoration: none
+  }
 
-.dropfilter-header {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: bold
+  .dropfilter-header {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold
+  }
 }

@@ -12,7 +12,6 @@ $(document).ready(function () {
     api.Listar(filtro, categoria, iniciopag, fimpag, LoadEquipSuccess, LoadEquipError);
 });
 
-
 function LoadEquipSuccess(data) {
     var text = "";
     data.forEach(equip => {
