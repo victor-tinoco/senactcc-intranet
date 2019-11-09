@@ -1,6 +1,3 @@
-function equipMobile() {
-    window.location.replace("mobileAgendamento.html");
-}
 
 'Equipamentos para a vDesktop'
 $(document).ready(function () {
@@ -27,7 +24,12 @@ function LoadEquipSuccess(data) {
             '</div> </div>';
         text += html;
     });
-    document.getElementById("equips").innerHTML = text;
+
+    $('#equips, #equips-mobile').html(text);
+    $('#equips-mobile .equip').removeAttr('data-toggle')
+    $('#equips-mobile .equip').removeAttr('data-target')
+    $('#equips-mobile .equip').on('click', function() { window.location.replace("mobileAgendamento.html"); })
+
 }
 
 function LoadEquipError(data) {
