@@ -25,6 +25,15 @@ function ApiEquipamento() {
         })
     }
 
+    api.Paginacao = function(acaoSucesso, acaoErro) {
+        $.ajax({
+            url: urlBaseApiEquipamento,
+            method: "GET",
+            success: function (data) { acaoSucesso(data); },
+            error: function (data) { acaoErro(data); }
+        })        
+    }
+
     return api;
 }
 
