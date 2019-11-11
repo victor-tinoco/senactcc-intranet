@@ -1,13 +1,26 @@
 
 'Equipamentos para a vDesktop'
 $(document).ready(function () {
-    var api = ApiEquipamento();
-    var filtro = $("#searchInput").val();
-    var categoria = '';
-    var iniciopag = 0
-    var fimpag = 12
-    api.Listar(filtro, categoria, iniciopag, fimpag, LoadEquipSuccess, LoadEquipError);
+    UpdateContent();
 });
+
+$('.searchInput').keydown(function() {
+    UpdateContent('.searchInput');
+})
+
+$('#searchbar').keydown(function() {
+    UpdateContent('#searchbar');
+})
+
+// função que atualiza a lista de equipamentos 
+function UpdateContent(searchBarIdentity) {
+    var api = ApiEquipamento();
+    var filtro = $(searchBarIdentity).val();
+    var categoria = '';
+    var iniciopag = 0;
+    var fimpag = 12;
+    api.Listar(filtro, categoria, iniciopag, fimpag, LoadEquipSuccess, LoadEquipError);
+}
 
 function LoadEquipSuccess(data) {
     var text = "";
@@ -29,7 +42,6 @@ function LoadEquipSuccess(data) {
     $('#equips-mobile .equip').removeAttr('data-toggle')
     $('#equips-mobile .equip').removeAttr('data-target')
     $('#equips-mobile .equip').on('click', function() { window.location.replace("mobileAgendamento.html"); })
-
 }
 
 function LoadEquipError(data) {
@@ -58,20 +70,3 @@ $(document).ready(function () {
         $('.searchInput').val('')
     })
 });
-
-// 'Equipamentos para a vMobile'
-// $(document).ready(function () {
-//     var equipamentos = consultarEquips();
-//     var text = "";
-//     equipamentos.forEach(element => {
-//         var html =  '<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 mb-4">' +
-//                     '    <button onclick="equipMobile()" class="equip card-link pt-2 pl-2 pr-2 border-0" style="outline: none" >' + 
-//                     '       <img src="' + element.Image + '" alt="Imagem do Equipamento">' +
-//                     '       <br>' +
-//                     '       <div class=" equip-title d-flex align-items-center">' + element.Name + '</div>' +
-//                     '    </button>' +
-//                     '</div>' 
-//         text += html;
-//     });
-//     document.getElementById("equips-mobile").innerHTML = text;
-// });
