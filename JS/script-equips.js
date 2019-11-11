@@ -4,10 +4,10 @@ $(document).ready(function () {
     UpdateContent();
 });
 
+// Atualiza quando altera a searchbar, passando qual o identificador (se é pra pegar o value da search bar mobile ou não)
 $('.searchInput').keydown(function() {
     UpdateContent('.searchInput');
 })
-
 $('#searchbar').keydown(function() {
     UpdateContent('#searchbar');
 })

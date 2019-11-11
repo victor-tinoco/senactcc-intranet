@@ -1,7 +1,23 @@
 const urlBaseApiEquipamento = "http://localhost:59934/api/equipamento/";
 const urlBaseApiAgendamento = "http://localhost:59934/api/agendamento/";
+const urlBaseApiCategoria = "http://localhost:59934/api/categoria/";
 const urlBaseApiLogin = "http://localhost:59934/api/Login/";
 
+function ApiCategoria() {
+    var api = new Object;
+
+    api.Listar = function (acaoSucesso, acaoErro) {
+        $.ajax({
+            url: urlBaseApiCategoria,
+            contentType: 'application/json',
+            method: "GET",
+            success: function (data) { acaoSucesso(data); },
+            error: function (data) { acaoErro(data); }
+        })
+    }
+
+    return api;
+}
 
 function ApiEquipamento() {
     var api = new Object;
