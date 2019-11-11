@@ -16,6 +16,8 @@ $('#searchbar').keydown(function() {
 function UpdateContent(searchBarIdentity) {
     var api = ApiEquipamento();
     var filtro = $(searchBarIdentity).val();
+    if (filtro == null)
+        filtro = "";
     var categoria = '';
     var iniciopag = 0;
     var fimpag = 12;
@@ -31,7 +33,7 @@ function LoadEquipSuccess(data) {
         else
             imageElementSource = "data:image/png;base64, " + equip.SrcImagem;
 
-        var html = '<div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-4"> <div class="equip card-link pt-2 pl-2 pr-2 " data-id="' + equip.Id + '" data-toggle="modal" data-target="#modalequip">' +
+        var html = '<div class="col-lg-3 col-md-4 col-sm-4 col-6 mb-4"> <div class="equip card-link pt-2 pl-2 pr-2 " data-id="' + equip.Id + '" data-toggle="modal" data-target="#modalequip">' +
             '<div style="background-image: url(\'' + imageElementSource + '\')" class="imgEquip"></div>' +
             '<div class=" equip-title d-flex align-items-center">' + equip.Nome + '</div>' +
             '</div> </div>';
