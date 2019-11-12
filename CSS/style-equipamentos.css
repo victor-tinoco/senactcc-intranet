@@ -54,21 +54,18 @@ body {
     margin-bottom: 15px   
 }
 
-.titles-section {
-    font-size: 18px;
-    text-align: center;
-    font-weight: normal;
-    margin: 0;  
+.section:hover, .section-clear:hover {
+    cursor: pointer;
+    color: #424242
 }
 
-.section:hover {
+.selected-section {
     color: #005594;
-    cursor: pointer;
+    font-weight: 600;
 }
 
 .categories {
     font-size: 16px;
-    padding-left: 20px;
 }
 
 .close-category {

@@ -2,23 +2,58 @@
 'Equipamentos para a vDesktop'
 $(document).ready(function () {
     UpdateContent();
+    ListCategories();
 });
 
+function ListCategories() {
+    api = ApiCategoria();
+    api.Listar(function (categorias) {
+        var text = "";
+        categorias.forEach(categoria => {
+            var html = '<div class="section d-block">' + categoria.Nome + '</div>';
+            text += html
+        })
+        $('.categories-list').html(text);
+
+        $('.section').click(function (){
+            var section = $(this);
+            $('.section').each(function (){ 
+                $(this).removeClass('selected-section')
+            })
+            section.addClass('selected-section');
+        
+            var searchBarIdentity = $('.searchInput');
+            var selectedCategory = section.text();
+        
+            UpdateContent(searchBarIdentity, selectedCategory) 
+        })
+    }, function () { window.alert('Ocorreu um erro.') })
+}
+
+$('.section-clear').click(function (){
+    UpdateContent();
+    $('.section').each(function() {
+        $(this).removeClass('selected-section')
+    })
+})
+
 // Atualiza quando altera a searchbar, passando qual o identificador (se é pra pegar o value da search bar mobile ou não)
-$('.searchInput').keydown(function() {
+$('.searchInput').keydown(function () {
     UpdateContent('.searchInput');
 })
-$('#searchbar').keydown(function() {
+$('#searchbar').keydown(function () {
     UpdateContent('#searchbar');
 })
 
 // função que atualiza a lista de equipamentos 
-function UpdateContent(searchBarIdentity) {
+function UpdateContent(searchBarIdentity, selectedCategory) {
     var api = ApiEquipamento();
     var filtro = $(searchBarIdentity).val();
     if (filtro == null)
         filtro = "";
-    var categoria = '';
+    var categoria = selectedCategory;
+    if (categoria == null)
+        categoria = "";
     var iniciopag = 0;
     var fimpag = 12;
     api.Listar(filtro, categoria, iniciopag, fimpag, LoadEquipSuccess, LoadEquipError);
@@ -43,11 +78,11 @@ function LoadEquipSuccess(data) {
     $('#equips, #equips-mobile').html(text);
     $('#equips-mobile .equip').removeAttr('data-toggle')
     $('#equips-mobile .equip').removeAttr('data-target')
-    $('#equips-mobile .equip').on('click', function() { window.location.replace("mobileAgendamento.html"); })
+    $('#equips-mobile .equip').on('click', function () { window.location.replace("mobileAgendamento.html"); })
 }
 
 function LoadEquipError(data) {
-    console.log("Ocorreu um erro.")
+    window.alert("Ocorreu um erro.")
 }
 
 
