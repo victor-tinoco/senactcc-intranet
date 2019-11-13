@@ -80,15 +80,22 @@ function ApiAgendamento() {
 
     return api;
 }
+
 function ApiLogin() {
-    api.FazerLogin = function(dados,acaoSucesso,acaoErro) {
-        $.ajax ({
-            url: urlBaseApiLogin,
-            method: "POST",
-            contentType: 'application/json', 
-            data: JSON.stringify(dados),            
-            success: function (data) { acaoSucesso(data);},
-            error: function (data) {acaoErro(data);}
+    var api = new Object;
+
+    api.FazerLogin = function(dados, acaoSucesso, acaoCarregando, acaoCarregado, acaoErro) {
+        $.ajax({
+            url: urlBaseApiLogin +'Login',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(dados),
+            success: function(dados){ acaoSucesso(dados); },
+            error: function(dados){ acaoErro(dados) },
+            beforeSend: function(dados){ acaoCarregando(dados) },
+            complete:function(dados){ acaoCarregado(dados) }
         })
     }
+
+    return api;
 }
