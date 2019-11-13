@@ -1,6 +1,7 @@
-$('#modalequip').on('shown.bs.modal', function (event) {
+$('#modalequip').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget)
-	var idEquip = $('#idEquip').val(button.data('id'));
+	$('#idEquip').val(button.data('id'));
+	var idEquip = $('#idEquip').val()
 	var modal = $(this)
 	var api = ApiEquipamento();
 
@@ -57,8 +58,9 @@ $('input[type="checkbox"]').change(function () {
 
 	console.log(dia, horaRetirada, horaDevolucao, id)
 
+	// Falta ver como será o formato a ser enviado a data e as horas, não aceita no formato padrão.
 	// api.ConsultarDisponibilidade(dia, horaRetirada, horaDevolucao, id, function(data) {
-		
+
 	// }, function(data) {
 
 	// }, function(data) {
