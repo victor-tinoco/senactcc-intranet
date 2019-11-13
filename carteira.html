@@ -35,10 +35,10 @@
         <header class="header">
             <div class="container">
                 <div class="row d-flex align-items-center justify-content-between">
-                    <a href="equipamentos.html" class="col"><i class="fas back-icon fa-arrow-left"></i></a>
+                    <a href="equipamentos.html" class="col p-0"><i class="fas back-icon fa-chevron-left"></i></a>
 
-                    <div class="title-header-wallet col">
-                        CARTEIRA DE AGENDAMENTOS
+                    <div class="title-header-wallet p-0 col">
+                        AGENDAMENTOS
                     </div>
 
                     <div class="col d-flex justify-content-end p-0">
@@ -68,10 +68,11 @@
                 </div>
             </div>
         </header>
-        <div class="pt-4 container-fluid">
 
-            <div class=" d-flex align-items-end justify-content-center ">
-                <div class="">
+        <div class="pt-4 container">
+            <!-- Filtros -->
+            <div class="d-flex align-items-end justify-content-between row">
+                <div class="col-6">
                     <div class="letters">
                         <label for="searchBar" class="btn-titles"><i
                                 class="fas fa-search rotate icon-titles"></i>Procurar
@@ -84,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="ml-5">
+                <div class="col-2">
                     <div class="letters">
                         <label for="start-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
                             Início</label>
@@ -94,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="ml-5">
+                <div class="col-2">
                     <div class="letters">
                         <label for="end-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
                             Fim</label>
@@ -104,14 +105,15 @@
                     </div>
                 </div>
 
-                <div class="ml-5 mb-4">
-                    <div class="form-inline" role="group">
+                <div class="col-2 mb-4">
+                    <div class="form-inline d-flex justify-content-between" role="group">
                         <button type="button" class="btn btn-search style-search-clear">Buscar</button>
                         <button type="button" class="btn btn-clear style-color-light">Limpar</button>
                     </div>
                 </div>
             </div>
 
+            <!-- Table -->
             <div class="row wallet">
                 <div class="col">
                     <table class="table table-sm table-borderless">
@@ -152,7 +154,7 @@
             <div id="navbar-content">
                 <a href="equipamentos.html"><i name="arrow-back"
                         class="fas fa-arrow-left  d-flex h-100 d-flex align-items-center" id="return"></i></a>
-                <div id="navbar-title">CARTEIRA DE AGENDAMENTOS</div>
+                <div id="navbar-title">AGENDAMENTOS</div>
                 <a href="#" onclick="expandMenu()"><i class="fas fa-bars d-flex h-100 d-flex align-items-center pr-2"
                         id="navbar-title"></i></a>
             </div>
