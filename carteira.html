@@ -2,7 +2,6 @@
 <html lang="pt-br">
 
 <head>
-
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,40 +31,44 @@
 </head>
 
 <body>
-    <div class="body-cont d-none d-sm-block">
-        <header class="d-flex header align-items-center justify-content-between">
-            <div>
-                <a href="equipamentos.html" class="col-4"><i class="fas back-icon fa-arrow-left"></i></a>
-            </div>
-            <div class="title-header-wallet">
-                CARTEIRA DE AGENDAMENTOS
-            </div>
-            <div>
-                <button type="button" id="dropdProfile"
-                    class="dropdown dropdProfile p-0 d-flex justify-content-center align-items-center"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="circleProfile d-flex align-items-center justify-content-center">
-                        VT
+    <div class="d-none d-sm-block">
+        <header class="header">
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <a href="equipamentos.html" class="col"><i class="fas back-icon fa-arrow-left"></i></a>
+
+                    <div class="title-header-wallet col">
+                        CARTEIRA DE AGENDAMENTOS
                     </div>
-                </button>
-                <div class="p-3 dropdown-menu menu-drop" aria-labelledby="dropdProfile">
-                    <div class="title-drop m-2 w">
-                        Minha Conta
-                    </div>
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="d-inline circleProfile d-flex align-items-center justify-content-center">
-                            VT
+
+                    <div class="col d-flex justify-content-end p-0">
+                        <button type="button" id="dropdProfile"
+                            class="dropdown dropdProfile p-0 d-flex justify-content-center align-items-center"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="circleProfile d-flex align-items-center justify-content-center">
+                                VT
+                            </div>
+                        </button>
+                        <div class="p-3 dropdown-menu menu-drop" aria-labelledby="dropdProfile">
+                            <div class="title-drop m-2 w">
+                                Minha Conta
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="d-inline circleProfile d-flex align-items-center justify-content-center">
+                                    VT
+                                </div>
+                                <div class="d-inline pl-2" style="font-weight: 300">
+                                    Victor Tinoco
+                                </div>
+                            </div>
+                            <a href="carteira.html" class="d-block" class="link-drop">Carteira de Agendamentos</a>
+                            <a href="index.html" class="d-block" class="link-drop">Sair</a>
                         </div>
-                        <div class="d-inline pl-2" style="font-weight: 300">
-                            Victor Tinoco
-                        </div>
                     </div>
-                    <a href="carteira.html" class="d-block" class="link-drop">Carteira de Agendamentos</a>
-                    <a href="index.html" class="d-block" class="link-drop">Sair</a>
                 </div>
             </div>
         </header>
-        <div class="cont container-fluid">
+        <div class="pt-4 container-fluid">
 
             <div class=" d-flex align-items-end justify-content-center ">
                 <div class="">
@@ -140,15 +143,12 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-
+    <!-- Mobile -->
     <div class="body-cont d-block d-sm-none">
 
-        <!-- WRAPPER DA BARRA SUPERIOR -->
         <div class="header-navbar p-3">
-            <!-- CONTEÚDO DA NAVBAR -->
             <div id="navbar-content">
                 <a href="equipamentos.html"><i name="arrow-back"
                         class="fas fa-arrow-left  d-flex h-100 d-flex align-items-center" id="return"></i></a>
@@ -201,7 +201,7 @@
         </div>
 
         <!-- BOTÕES DE DATA -->
-        <div class="cont container-fluid">
+        <div class="pt-4 container-fluid">
             <div class="row">
                 <div class="col-6">
                     <div class="letters">

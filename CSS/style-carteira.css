@@ -1,10 +1,4 @@
 
-/* container do site inteiro (tirando header) */
-.cont{
-    padding-top: 18px;
-    
-}
-
 /* titulo do header */
 .title-header-wallet {
     font-size: 20px;
