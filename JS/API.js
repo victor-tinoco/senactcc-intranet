@@ -56,11 +56,13 @@ function ApiEquipamento() {
 function ApiAgendamento() {
     var api = new Object;
 
-    api.ConsultarDisponibilidade = function (Dia, HoraRetirada, HoraDevolucao, Id, acaoSucesso, acaoErro) {
+    api.ConsultarDisponibilidade = function (dia, horaRetirada, horaDevolucao, id, acaoSucesso, acaoCarregando, acaoCarregado, acaoErro) {
         $.ajax({
-            url: urlBaseApiAgendamento + "?dia=" + Dia,// falta terminar sa poha ,
+            url: urlBaseApiAgendamento + "?dia=" + dia + "&horaretirada=" + horaRetirada + "&horadevolucao=" + horaDevolucao + "&id=" + id ,
             method: "GET",
             success: function (data) { acaoSucesso(data); },
+            beforeSend: function (data) { acaoCarregando(data); },
+            complete: function (data) { acaoCarregado(data); },
             error: function (data) { acaoErro(data); }
         })
     }
