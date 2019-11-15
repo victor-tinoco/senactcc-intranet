@@ -37,8 +37,7 @@ $('#datepicker').change(function () {
 function FillSelect(){
 	const api = ApiAgendamento();
 
-	var diaInput = $('.datepicker-modal').datepicker('getDate');
-	var dia = diaInput.getFullYear() + '-' + (diaInput.getMonth() + 1) + '-' + diaInput.getDate();	
+	var dia = ConsultDate();
 
 	var id = $('#idEquip').val()
 
@@ -46,7 +45,7 @@ function FillSelect(){
 
 	// Para não quebrar a hora de entrega temos essa regra de negócio, onde o usuario não pode não pode 
 	// alugar num mesmo agendamento somente os horários manhã e noite.
-	if (hora != false) {
+	if (hora != false && dia != false) {
 		api.ConsultarDisponibilidade(dia, hora.Retirada, hora.Devolucao, id, function(data) {
 			const selectQuant = $('.select-quant');
 			ClearSelect();
@@ -61,6 +60,8 @@ function FillSelect(){
 			ClearSelect();
 			console.log('Foi inserido uma data ou períodos nulos ou indefinidos.') 
 		})		
+	} else {
+		ClearSelect();
 	}
 }
 
@@ -85,13 +86,13 @@ $('.confirm-btn').click(function(){
 		dados.Dia = $('.datepicker-modal').datepicker('getDate');
 		dados.DataHoraRetirada = hora.Retirada;
 		dados.DataHoraDevolucao = hora.Devolucao;
-		dados.IdEquipamento = $('#idEquip');
+		dados.IdEquipamento = $('#idEquip').val;
 
 		console.log(dados);
 
 		// var api = ApiAgendamento();
 		// api.Incluir(dados, function(dados){
-		// 	window.alert('Sucess');
+		// 	window.alert('sucess')
 		// }, function(dados){
 
 		// }, function(dados){
@@ -102,6 +103,8 @@ $('.confirm-btn').click(function(){
 	};
 })
 
+
+// Caso der certo retorna os períodos selecionados, se não, retorna falso.
 function ConsultTime(){
 	var cbManha = $('#check-manha').is(':checked');
 	var cbTarde = $('#check-tarde').is(':checked');
@@ -125,7 +128,7 @@ function ConsultTime(){
 		horaRetirada = '07:00:00';
 	else
 		if (cbTarde)
-			horaRetirada = '12:00:00';
+			horaRetirada = '13:00:00';
 		else
 			horaRetirada = (cbNoite) ? '19:00:00' : null;
 	if (cbNoite)
@@ -143,6 +146,21 @@ function ConsultTime(){
 	return time;
 }
 
+// Caso der certo retorna a data selecionada, se não, retorna falso.
+function ConsultDate(){
+	var today = new Date();
+	today.setHours(0,0,0,0);
+	var diaInput = $('.datepicker-modal').datepicker('getDate');
+
+	if ((diaInput < today) || ($('.datepicker-modal') === ''))
+		return false;
+
+	var diaInput = $('.datepicker-modal').datepicker('getDate');
+	diaInput = diaInput.getFullYear() + '-' + (diaInput.getMonth() + 1) + '-' + diaInput.getDate();	
+
+	return diaInput;
+}
+
 function ValidateModalFields(){
 	var erro = '';
 
@@ -152,14 +170,12 @@ function ValidateModalFields(){
 	if ($('.select-quant option:selected').val() == 0)
 		erro += '- Selecione uma quantidade*\n'
 
-	var today = new Date();
-	today.setHours(0);
-	today.setMinutes(0); 
-	var diaInput = $('.datepicker-modal').datepicker('getDate');
-	if (diaInput < today)
+	if (ConsultDate() == false)
 		erro += '- Selecione uma data igual ou maior que o dia de hoje\n'
 
+
 	if (erro === '') {
+		erro += '- Selecione uma data'
 		return true;
 	} else {
 		window.alert('Erro:\n' + erro);
