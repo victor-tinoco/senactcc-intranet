@@ -27,15 +27,100 @@ $('#modalequip').on('show.bs.modal', function (event) {
 })
 
 $('input[type="checkbox"]').change(function () {
+	FillSelect();
+});
+
+$('#datepicker').change(function () {
+	FillSelect();
+});
+
+function FillSelect(){
 	const api = ApiAgendamento();
 
 	var diaInput = $('.datepicker-modal').datepicker('getDate');
-	var dia = diaInput.getFullYear() + '-' + (diaInput.getMonth() + 1) + '-' + diaInput.getDate();
+	var dia = diaInput.getFullYear() + '-' + (diaInput.getMonth() + 1) + '-' + diaInput.getDate();	
 
+	var id = $('#idEquip').val()
+
+	var hora = ConsultTime()
+
+	// Para não quebrar a hora de entrega temos essa regra de negócio, onde o usuario não pode não pode 
+	// alugar num mesmo agendamento somente os horários manhã e noite.
+	if (hora != false) {
+		api.ConsultarDisponibilidade(dia, hora.Retirada, hora.Devolucao, id, function(data) {
+			const selectQuant = $('.select-quant');
+			ClearSelect();
+			quantidadeDisponivel = data;
+			var html = '';
+			for (let i = 0; i <= quantidadeDisponivel; i++) {
+				var text = '<option>' + i + '</option>';
+				html += text;
+			}
+			selectQuant.html(html);
+		},function(){
+			ClearSelect();
+			console.log('Foi inserido uma data ou períodos nulos ou indefinidos.') 
+		})		
+	}
+}
+
+function ClearCheckbox(){
+	$('#check-manha').prop('checked', false);
+	$('#check-tarde').prop('checked', false);
+	$('#check-noite').prop('checked', false);
+}
+
+function ClearSelect(){
+	var text = '<option selected>0</option>';
+	$('.select-quant').html(text)
+}
+
+$('.confirm-btn').click(function(){
+	if (ValidateModalFields()){
+
+		var dados = new Object;
+		dados.IdUsuario = 2 //tem que retornar do usuario logado
+		var hora = ConsultTime();
+		dados.DataAgendamento = $('.today').val(new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear());
+		dados.Dia = $('.datepicker-modal').datepicker('getDate');
+		dados.DataHoraRetirada = hora.Retirada;
+		dados.DataHoraDevolucao = hora.Devolucao;
+		dados.IdEquipamento = $('#idEquip');
+
+		console.log(dados);
+
+		// var api = ApiAgendamento();
+		// api.Incluir(dados, function(dados){
+		// 	window.alert('Sucess');
+		// }, function(dados){
+
+		// }, function(dados){
+
+		// }, function(dados){
+		// 	window.alert('Ocorreu um erro.')
+		// })
+	};
+})
+
+function ConsultTime(){
 	var cbManha = $('#check-manha').is(':checked');
 	var cbTarde = $('#check-tarde').is(':checked');
 	var cbNoite = $('#check-noite').is(':checked');
-	
+
+	if (!cbManha && !cbNoite && !cbTarde) {
+		ClearSelect();
+		return false;
+	}
+
+	if (cbManha && cbNoite && !cbTarde) {
+		window.alert('Para esses horários faça um agendamento de cada vez*')
+		ClearCheckbox();
+		ClearSelect();
+		return false;
+	}
+
+	var horaRetirada;
+	var horaDevolucao;
 	if (cbManha)
 		horaRetirada = '07:00:00';
 	else
@@ -51,39 +136,33 @@ $('input[type="checkbox"]').change(function () {
 		else
 			horaDevolucao = (cbManha) ? '12:00:00' : null;
 
-	// Para não quebrar a hora de entrega temos essa regra de negócio, onde o usuario não pode não pode 
-	// alugar num mesmo agendamento somente os horários manhã e noite.
-	if (cbManha && cbNoite && !cbTarde) {
-		window.alert('Para esses horários faça um agendamento de cada vez*')
-		ClearCheckbox();
-		ClearSelect();
-	}
-	var id = $('#idEquip').val()
+	var time = new Object;
+	time.Retirada = horaRetirada;
+	time.Devolucao = horaDevolucao;
 
-	api.ConsultarDisponibilidade(dia, horaRetirada, horaDevolucao, id, function(data) {
-		const selectQuant = $('.select-quant');
-		selectQuant.empty();
-		quantidadeDisponivel = data;
-		var html = '';
-		for (let i = 0; i <= quantidadeDisponivel; i++) {
-			var text = '<option>' + i + '</option>';
-			html += text;
-		}
-		selectQuant.html(html);
-	}, function(data) {
-
-	}, function(data) {
-
-	},function(){ console.log('Foi inserido uma data ou períodos nulos ou indefinidos.') })
-});
-
-function ClearCheckbox(){
-	$('#check-manha').prop('checked', false);
-	$('#check-tarde').prop('checked', false);
-	$('#check-noite').prop('checked', false);
+	return time;
 }
 
-function ClearSelect(){
-	var text = '<option selected>0</option>';
-	$('.select-quant').html(text)
+function ValidateModalFields(){
+	var erro = '';
+
+	if (ConsultTime() == false)
+		erro += '- Selecione um período*\n'
+	
+	if ($('.select-quant option:selected').val() == 0)
+		erro += '- Selecione uma quantidade*\n'
+
+	var today = new Date();
+	today.setHours(0);
+	today.setMinutes(0); 
+	var diaInput = $('.datepicker-modal').datepicker('getDate');
+	if (diaInput < today)
+		erro += '- Selecione uma data igual ou maior que o dia de hoje\n'
+
+	if (erro === '') {
+		return true;
+	} else {
+		window.alert('Erro:\n' + erro);
+		return false;
+	}
 }

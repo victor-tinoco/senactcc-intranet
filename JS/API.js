@@ -56,24 +56,24 @@ function ApiEquipamento() {
 function ApiAgendamento() {
     var api = new Object;
 
-    api.ConsultarDisponibilidade = function (dia, horaRetirada, horaDevolucao, id, acaoSucesso, acaoCarregando, acaoCarregado, acaoErro) {
+    api.ConsultarDisponibilidade = function (dia, horaRetirada, horaDevolucao, id, acaoSucesso, acaoErro) {
         $.ajax({
             url: urlBaseApiAgendamento + "?dia=" + dia + "&horaretirada=" + horaRetirada + "&horadevolucao=" + horaDevolucao + "&id=" + id ,
             method: "GET",
             success: function (data) { acaoSucesso(data); },
-            beforeSend: function (data) { acaoCarregando(data); },
-            complete: function (data) { acaoCarregado(data); },
             error: function (data) { acaoErro(data); }
         })
     }
 
-    api.Incluir = function (dados, acaoSucesso, acaoErro) {
+    api.Incluir = function (dados, acaoSucesso, acaoCarregando, acaoCarregado, acaoErro) {
         $.ajax({
             url: urlBaseApiAgendamento,
             method: "POST",
             contentType: 'application/json', 
             data: JSON.stringify(dados),
             success: function (data) { acaoSucesso(data); },
+            beforeSend: function(dados){ acaoCarregando(dados) },
+            complete:function(dados){ acaoCarregado(dados) },
             error: function (data) { acaoErro(data); }
         })
     }
