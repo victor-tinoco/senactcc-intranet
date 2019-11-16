@@ -80,25 +80,27 @@ $('.confirm-btn').click(function(){
 	if (ValidateModalFields()){
 		var dados = new Object;
 		var hora = ConsultTime();
-		dados.DataAgendamento = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
+		dados.DataAgendamento = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 		dados.Dia = $('.datepicker-modal').datepicker('getDate');
 		dados.DataHoraRetirada = hora.Retirada;
+		dados.Quantidade = $('.select-quant option:selected').val()
 		dados.DataHoraDevolucao = hora.Devolucao;
 		dados.IdEquipamento = $('#idEquip').val();
 
-		console.log(dados);
-
-		// ERRO NO CLAIMS VERIFICAR SEGUNDA
-		// var api = ApiAgendamento();
-		// api.Incluir(dados, function(dados){
-		// 	window.alert('Sucess.');
-		// }, function(dados){
-
-		// }, function(dados){
-
-		// }, function(dados){
-		// 	window.alert('Ocorreu um erro.')
-		// })
+		var api = ApiAgendamento();
+		api.Incluir(dados, function(dados){
+			
+		}, function(dados){
+			$('.confirm-btn').attr('disabled', 'disabled');
+			$('.confirm-btn').text('Carregando...')
+		}, function(dados){
+			$('.confirm-btn').removeAttr('disabled', 'disabled');
+			$('.confirm-btn').text('Confirmar')
+			$('#modalequip').modal('hide');
+			setTimeout(() => { window.alert('Agendamento efetuado com sucesso.') }, 2000); 
+		}, function(dados){
+			window.alert('Ocorreu um erro.')
+		})
 	};
 })
 
