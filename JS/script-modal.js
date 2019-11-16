@@ -78,21 +78,20 @@ function ClearSelect(){
 
 $('.confirm-btn').click(function(){
 	if (ValidateModalFields()){
-
 		var dados = new Object;
-		dados.IdUsuario = 2 //tem que retornar do usuario logado
 		var hora = ConsultTime();
-		dados.DataAgendamento = $('.today').val(new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear());
+		dados.DataAgendamento = new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
 		dados.Dia = $('.datepicker-modal').datepicker('getDate');
 		dados.DataHoraRetirada = hora.Retirada;
 		dados.DataHoraDevolucao = hora.Devolucao;
-		dados.IdEquipamento = $('#idEquip').val;
+		dados.IdEquipamento = $('#idEquip').val();
 
 		console.log(dados);
 
+		// ERRO NO CLAIMS VERIFICAR SEGUNDA
 		// var api = ApiAgendamento();
 		// api.Incluir(dados, function(dados){
-		// 	window.alert('sucess')
+		// 	window.alert('Sucess.');
 		// }, function(dados){
 
 		// }, function(dados){
