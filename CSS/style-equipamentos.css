@@ -112,6 +112,14 @@ body {
     font-size: 20px;
 }
 
+.only {
+    background:#003a66
+}
+
+.only-disabled {
+    background: #757575
+}
+
 .page-links a{
     color: white;
     text-decoration: none;

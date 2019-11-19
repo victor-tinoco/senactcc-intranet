@@ -49,37 +49,23 @@
                     </div>
 
                     <!-- Right side of header -->
-                    <div class="col d-flex align-items-center justify-content-end p-0 m-0">
+                    <div class="col d-flex align-items-center justify-content-end">
 
                         <img src="img/senaclogo.png" alt="" class="logosenac">
 
                         <!-- Dropdown Profile -->
-                        <button type="button" id="dropdProfile"
-                            class="dropdown dropdProfile p-0 d-flex justify-content-center align-items-center"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="circleProfile d-flex align-items-center justify-content-center">
-                                VT
-                            </div>
-                        </button>
-                        <div class="p-2 dropdown-menu menu-drop" aria-labelledby="dropdProfile">
-                            <div class="title-drop m-2">
-                                Minha Conta
-                            </div>
-                            <div class="d-flex align-items-center mb-2">
-                                <div class="d-inline circleProfile d-flex align-items-center justify-content-center">
-                                    VT
-                                </div>
-                                <div class="d-inline pl-2" style="font-weight: 300">
-                                    Victor Tinoco
-                                </div>
-                            </div>
-                            <a href="carteira.html" class="d-block" class="link-drop">Carteira de Agendamentos</a>
-                            <a href="index.html" class="d-block" class="link-drop">Sair</a>
-                        </div>
+                        <div class="dropd-profile"></div>
                     </div>
                 </div>
             </div>
         </header>
+        
+        <div style="position: absolute; z-index: 5;" class="w-100">
+                <div class="container d-flex justify-content-end">
+                    <div class="menu-drop d-none"></div>
+                </div>
+        </div>    
+        
 
         <!-- Container de conteúdo do site -->
         <div class="container p-4">
@@ -103,17 +89,8 @@
                     </div>
 
                     <!-- Paginação -->
-                    <div class="row">
-                        <div class="col d-flex justify-content-center">
-                            <ul class="p-0 m-0 mt-2 d-flex" style="list-style-type: none;">
-                                <li class="page-links">
-                                    <</li> <li class="page-links"><a href="#" class="only">1</a>
-                                </li>
-                                <li class="page-links"><a href="#">2</a></li>
-                                <li class="page-links"><a href="#">3</a></li>
-                                <li class="page-links"><a href="#">></a></li>
-                            </ul>
-                        </div>
+                    <div class="row pagination-js">
+                        <!-- JS/paginacao.js -->
                     </div>
                 </div>
             </div>
@@ -136,7 +113,7 @@
                                     <div class="ml-2">Dados do Equipamento</div>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <div style="width: 160px; height: 160px"> 
+                                    <div style="width: 160px; height: 160px">
                                         <div class="img-modal"></div>
                                     </div>
                                     <div class="ml-3">
@@ -266,16 +243,8 @@
                     </div>
 
                     <!-- Paginação -->
-                    <div class="row">
-                        <ul class="col m-0 d-flex justify-content-center" style="list-style-type: none;">
-                            <li class="page-links">
-                                <</li> <li class="page-links"><a href="#" class="only">1</a>
-                            </li>
-                            <li class="page-links"><a href="#">2</a></li>
-                            <li class="page-links"><a href="#">3</a></li>
-                            <li class="page-links"><a href="#">></a></li>
-
-                        </ul>
+                    <div class="row pagination-js">
+                        <!-- JS/paginacao.js -->
                     </div>
                 </div>
             </div>
@@ -304,6 +273,8 @@
     <script type="text/javascript" src="js/datepicker.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/script-equips.js"></script>
+    <script type="text/javascript" src="js/paginacao.js"></script>
+    <script type="text/javascript" src="js/profile-menu.js"></script>
 
 </body>
 

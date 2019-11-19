@@ -1,4 +1,5 @@
 * {
+    outline: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -21,42 +22,24 @@ textarea:focus, input:focus, select:focus {
     min-width: 186px;
 }
 
-.dropdProfile {
-    height: 56px;
-    width: 55px;
-    background-color: #eeeeee;
-    border: none;
+.circleProfile {
+    color: white;
+    font-size: 40px;
+    margin: 6px;
 }
 
-.dropdProfile:hover, .dropdProfile:active, .dropdProfile:focus, #filter-btn.hover, #filter-btn:active, #filter-btn:focus {
-    outline: none;
+.circleProfile:hover {
     cursor: pointer;
 }
 
-.circleProfile {
-    height: 40px;
-    width: 40px;
-    background-color: #005594;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
-    font-size: 20px
-}
-
 .menu-drop {
-    border-radius: 0;
-    margin: 0;
-    background-color: #eeeeee;
+    background-color: #fff;
     color: #7c7c7c;
-    width: 250px;
-    border: none;
-    box-shadow: none;
-}
-
-.menu-drop a {
-    color: #005594;
-    font-size: 14px;
-    font-weight: 500
+    border-radius: 3px;
+    box-shadow:  0 1px 5px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    max-width: 200px;
+    margin-top: 10px;
 }
 
 .title-drop {
