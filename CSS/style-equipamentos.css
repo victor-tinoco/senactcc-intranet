@@ -105,11 +105,15 @@ body {
 
 .page-links {
     padding: 5px 15px;
-    background: #005594;;
+    background: #005594;
     color: white;
     margin: 2px;
     font-weight: lighter;
     font-size: 20px;
+}
+
+.page-links:hover {
+    cursor: pointer;
 }
 
 .only {
@@ -118,11 +122,6 @@ body {
 
 .only-disabled {
     background: #757575
-}
-
-.page-links a{
-    color: white;
-    text-decoration: none;
 }
 
 
