@@ -3,6 +3,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+a {
+    color: #337ab7;
+    text-decoration: none;
+    font-size: 14px;
+}
+
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
@@ -59,17 +65,12 @@ textarea:focus, input:focus, select:focus {
     color: white;
     text-transform: uppercase;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     padding: 7px;
+    text-decoration: none;
     background-color: #003a66;
 }
 
 .menu-drop-mobile a:hover, .menu-drop-mobile a:active, .menu-drop-mobile a:focus {
-    color: #005594;
-    background-color: #e2e2e2;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 7px;
-    text-decoration: none;
+    background-color: #002746;
 }

@@ -16,7 +16,16 @@ $(function() {
         if (menuDropContainer.hasClass('d-none'))
             menuDropContainer.removeClass('d-none');
         else
-            menuDropContainer.addClass('d-none');
-            
+            menuDropContainer.addClass('d-none');      
     })
+
+  // Mobile >
+    var contMobileMenu = '<a class="col-12" href="carteira.html">Carteira de Agendamentos</a>' +
+                        '<a class="col-12" href="index.html">Sair</a>';
+    $('.menu-drop-mobile').html(contMobileMenu);
+    
+    // circleProfile.blur(function(){
+    //     if (menuDropContainer.hasClass('d-none'))
+    //         menuDropContainer.removeClass('d-none');
+    // })
 })
