@@ -83,11 +83,6 @@ tbody th {
     box-shadow: none !important;
 }
 
-/* CSS DO ICONE DE PESQUISA */
-.rotate{
-  transform: rotate(80deg)
-}
-
 /* Deixar o cursor do mouse com a mãozinha */
 .pointer {
   cursor: pointer;
@@ -149,32 +144,6 @@ div.meuDropDown.show{
     padding: 0px;
     margin: 0px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .header-navbar {
-    background-color: #005593;
-    color: white;
-  }
-  .header-navbar #navbar-content {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-  }
-
-  #navbar-content a:hover, #navbar-content a:active, #navbar-content a:focus {
-    text-decoration: none;
-    color: rgb(219, 219, 219);
-    outline: none;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .header-navbar #navbar-content #return {
-      font-size: 16px;
-    }
-  }
-  
-  .header-navbar #navbar-content #navbar-title {
-    font-size: 18px;
   }
   
   .search-bar-content {
