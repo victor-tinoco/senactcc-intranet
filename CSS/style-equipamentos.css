@@ -126,20 +126,6 @@ body {
 
 
 /* Mobile Especs */
-.header-mobile-cont {
-    font-size: 18px;
-    color: white;
-}
-
-.header-mobile-cont a {
-    color: white;
-}
-
-.header-mobile-cont a:hover, .header-mobile-cont a:active, .header-mobile-cont a:focus {
-    text-decoration: none;
-    color: rgb(219, 219, 219);
-    outline: none;
-}
 
 .search-bar-mobile {
     display: flex;
