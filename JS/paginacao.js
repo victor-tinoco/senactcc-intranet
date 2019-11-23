@@ -8,9 +8,9 @@ function getPagination(pageNumber) {
     let quantPages;
     api.Paginacao(function (dados) {
         equipQuantity = (dados != 0) ? dados : 1;
-        quantPages = Math.ceil(equipQuantity / 12);    
+        quantPages = Math.ceil(equipQuantity / 12);
         const link = new Object;
-        
+
         if ((pageNumber + 2) <= quantPages) {
             link.main = pageNumber;
             link.second = pageNumber + 1;
@@ -18,20 +18,49 @@ function getPagination(pageNumber) {
             fillPagination(link);
             $('.main').addClass('only');
         } else {
-            if ((pageNumber + 1) <= quantPages) {
-                link.main = pageNumber - 1;
-                link.second = pageNumber;
-                link.third = pageNumber + 1;
-                fillPagination(link)
-                $('.second').addClass('only')
-            } else if (pageNumber = quantPages) {
-                link.main = pageNumber - 2;
-                link.second = pageNumber - 1;
-                link.third = pageNumber;
-                fillPagination(link)
-                $('.third').addClass('only')
+            if (quantPages < 3) {
+                switch (quantPages) {
+                    case 1:
+                        link.main = 1;
+                        fillPagination(link);
+                        break;
+
+                    case 2:
+                        link.main = 1;
+                        link.second = 2;
+                        fillPagination(link);
+                        if (pageNumber == 1)
+                            $('.main').addClass('only');
+                        else
+                            $('.second').addClass('only');
+                        break;
+
+                    default:
+                        break;
+                }
+            } else {
+                if ((pageNumber + 1) <= quantPages) {
+                    link.main = pageNumber - 1;
+                    link.second = pageNumber;
+                    link.third = pageNumber + 1;
+                    fillPagination(link)
+                    $('.second').addClass('only')
+                } else if (pageNumber = quantPages) {
+                    link.main = pageNumber - 2;
+                    link.second = pageNumber - 1;
+                    link.third = pageNumber;
+                    fillPagination(link);
+                    $('.third').addClass('only');
+                }
             }
         }
+        
+        // Para validar se deve existir o back ou next
+        if (pageNumber == 1)
+            $('.back').addClass('d-none');
+        if (pageNumber == quantPages)
+            $('.next').addClass('d-none');
+        
     }, function (dados) {
         window.alert('Ocorreu um erro.')
     })
@@ -55,4 +84,34 @@ function fillPagination(link) {
 
     if (link.third == null)
         $('.third').addClass('d-none');
+
+    clickPageLinksEvent();
+}
+
+function clickPageLinksEvent(){
+    let updatedPage;
+
+    $('.back').click(function(){
+        const only = $(this).parent().find('.only').text();
+        updatedPage = parseInt(only)- 1;
+        callUpdate(updatedPage);
+    })
+
+    $('.next').click(function(){
+        const only = $(this).parent().find('.only').text();
+        updatedPage = parseInt(only) + 1;
+        callUpdate(updatedPage);
+    })
+
+    $('.main, .second, .third').click(function(){
+        updatedPage = parseInt($(this).text());
+        callUpdate(updatedPage);
+    })
+
+    callUpdate = function(updatedPage){
+        getPagination(updatedPage);
+        const category = $('.selected-section').text()
+        const filter = (screen.widht <= 576) ? $('#searchbar').val() : $('.searchInput').val();
+        UpdateContent(filter, category, updatedPage);
+    }
 }
