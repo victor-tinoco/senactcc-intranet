@@ -1,7 +1,7 @@
 
 'Equipamentos para a vDesktop'
 $(document).ready(function () {
-    UpdateContent();
+    UpdateContent(null, null, 0, 12);
     ListCategories();
 });
 
@@ -46,7 +46,7 @@ $('#searchbar').keydown(function () {
 })
 
 // função que atualiza a lista de equipamentos 
-function UpdateContent(searchBarIdentity, selectedCategory) {
+function UpdateContent(searchBarIdentity, selectedCategory, startEquip, endEquip) {
     var api = ApiEquipamento();
     var filtro = $(searchBarIdentity).val();
     if (filtro == null)
@@ -54,9 +54,7 @@ function UpdateContent(searchBarIdentity, selectedCategory) {
     var categoria = selectedCategory;
     if (categoria == null)
         categoria = "";
-    var iniciopag = 0;
-    var fimpag = 12;
-    api.Listar(filtro, categoria, iniciopag, fimpag, LoadEquipSuccess, LoadEquipError);
+    api.Listar(filtro, categoria, startEquip, endEquip, LoadEquipSuccess, LoadEquipError);
 }
 
 function LoadEquipSuccess(data) {
