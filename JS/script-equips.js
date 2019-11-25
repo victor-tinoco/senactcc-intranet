@@ -39,12 +39,12 @@ $('.section-clear').click(function (){
     callUpdatePagination(1);
 })
 
-$('.searchInput').keydown(function () {
+$('.searchInput').keyup(function () {
     UpdateContent($(this).val(), $('.selected-section').text());
     callUpdatePagination(1);
 })
 
-$('#searchbar').keydown(function () {
+$('#searchbar').keyup(function () {
     UpdateContent($(this).val(),''); // COLOCAR O IDENTIFICADOR DA CATEGORIA MOBILE AQUI!
     callUpdatePagination(1);
 })
