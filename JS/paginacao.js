@@ -6,7 +6,9 @@ function getPagination(pageNumber) {
     const api = ApiEquipamento();
     let equipQuantity;
     let quantPages;
-    api.Paginacao(function (dados) {
+    const category = $('.selected-section').text()
+    const filter = (screen.widht <= 576) ? $('#searchbar').val() : $('.searchInput').val();
+    api.Paginacao(category, filter, function (dados) {
         equipQuantity = (dados != 0) ? dados : 1;
         quantPages = Math.ceil(equipQuantity / 12);
         const link = new Object;
@@ -54,13 +56,13 @@ function getPagination(pageNumber) {
                 }
             }
         }
-        
+
         // Para validar se deve existir o back ou next
         if (pageNumber == 1)
             $('.back').addClass('d-none');
         if (pageNumber == quantPages)
             $('.next').addClass('d-none');
-        
+
     }, function (dados) {
         window.alert('Ocorreu um erro.')
     })
@@ -88,30 +90,31 @@ function fillPagination(link) {
     clickPageLinksEvent();
 }
 
-function clickPageLinksEvent(){
+function clickPageLinksEvent() {
     let updatedPage;
 
-    $('.back').click(function(){
+    $('.back').click(function () {
         const only = $(this).parent().find('.only').text();
-        updatedPage = parseInt(only)- 1;
-        callUpdate(updatedPage);
+        updatedPage = parseInt(only) - 1;
+        callUpdatePagination(updatedPage);
     })
 
-    $('.next').click(function(){
+    $('.next').click(function () {
         const only = $(this).parent().find('.only').text();
         updatedPage = parseInt(only) + 1;
-        callUpdate(updatedPage);
+        callUpdatePagination(updatedPage);
     })
 
-    $('.main, .second, .third').click(function(){
+    $('.main, .second, .third').click(function () {
         updatedPage = parseInt($(this).text());
-        callUpdate(updatedPage);
+        callUpdatePagination(updatedPage);
     })
 
-    callUpdate = function(updatedPage){
-        getPagination(updatedPage);
-        const category = $('.selected-section').text()
-        const filter = (screen.widht <= 576) ? $('#searchbar').val() : $('.searchInput').val();
-        UpdateContent(filter, category, updatedPage);
-    }
+
+}
+function callUpdatePagination(updatedPage) {
+    getPagination(updatedPage);
+    const category = $('.selected-section').text()
+    const filter = (screen.widht <= 576) ? $('#searchbar').val() : $('.searchInput').val();
+    UpdateContent(filter, category, updatedPage);
 }

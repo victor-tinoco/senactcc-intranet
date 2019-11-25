@@ -24,6 +24,7 @@ function ListCategories() {
 
             const filter = $('.searchInput').val();
             const category = section.text();
+            callUpdatePagination(1);
             UpdateContent(filter, category); 
         })
     }, function () { window.alert('Ocorreu um erro.') })
@@ -35,14 +36,17 @@ $('.section-clear').click(function (){
     $('.section').each(function() {
         $(this).removeClass('selected-section')
     })
+    callUpdatePagination(1);
 })
 
 $('.searchInput').keydown(function () {
     UpdateContent($(this).val(), $('.selected-section').text());
+    callUpdatePagination(1);
 })
 
 $('#searchbar').keydown(function () {
     UpdateContent($(this).val(),''); // COLOCAR O IDENTIFICADOR DA CATEGORIA MOBILE AQUI!
+    callUpdatePagination(1);
 })
 
 // função que atualiza a lista de equipamentos 

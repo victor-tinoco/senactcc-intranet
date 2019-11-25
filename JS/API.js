@@ -1,12 +1,12 @@
-// const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipamento/";
-// const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
-// const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
-// const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
+const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipamento/";
+const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
+const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
+const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
 
-const urlBaseApiEquipamento = "http://localhost:59934/api/equipamento/";
-const urlBaseApiAgendamento = "http://localhost:59934/api/agendamento/";
-const urlBaseApiCategoria = "http://localhost:59934/api/categoria/";
-const urlBaseApiLogin = "http://localhost:59934/api/login/";
+// const urlBaseApiEquipamento = "http://localhost:59934/api/equipamento/";
+// const urlBaseApiAgendamento = "http://localhost:59934/api/agendamento/";
+// const urlBaseApiCategoria = "http://localhost:59934/api/categoria/";
+// const urlBaseApiLogin = "http://localhost:59934/api/login/";
 
 function ApiCategoria() {
     var api = new Object;
@@ -46,9 +46,9 @@ function ApiEquipamento() {
         })
     }
 
-    api.Paginacao = function(acaoSucesso, acaoErro) {
+    api.Paginacao = function(filtro, categoria, acaoSucesso, acaoErro) {
         $.ajax({
-            url: urlBaseApiEquipamento,
+            url: urlBaseApiEquipamento + "?filtro=" + filtro + "&categoria=" + categoria,
             method: "GET",
             success: function (data) { acaoSucesso(data); },
             error: function (data) { acaoErro(data); }
