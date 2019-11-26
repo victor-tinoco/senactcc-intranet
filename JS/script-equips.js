@@ -40,12 +40,10 @@ $('.section-clear').click(function (){
 })
 
 $('.searchInput').keyup(function () {
-    UpdateContent($(this).val(), $('.selected-section').text());
     callUpdatePagination(1);
 })
 
 $('#searchbar').keyup(function () {
-    UpdateContent($(this).val(),''); // COLOCAR O IDENTIFICADOR DA CATEGORIA MOBILE AQUI!
     callUpdatePagination(1);
 })
 

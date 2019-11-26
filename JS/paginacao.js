@@ -7,7 +7,7 @@ function getPagination(pageNumber) {
     let equipQuantity;
     let quantPages;
     const category = $('.selected-section').text()
-    const filter = (screen.widht <= 576) ? $('#searchbar').val() : $('.searchInput').val();
+    const filter = (screen.width <= 576) ? $('#searchbar').val() : $('.searchInput').val();
     api.Paginacao(category, filter, function (dados) {
         equipQuantity = (dados != 0) ? dados : 1;
         quantPages = Math.ceil(equipQuantity / 12);
@@ -115,6 +115,6 @@ function clickPageLinksEvent() {
 function callUpdatePagination(updatedPage) {
     getPagination(updatedPage);
     const category = $('.selected-section').text()
-    const filter = (screen.widht <= 576) ? $('#searchbar').val() : $('.searchInput').val();
+    const filter = (screen.width <= 576) ? $('#searchbar').val() : $('.searchInput').val();
     UpdateContent(filter, category, updatedPage);
 }
