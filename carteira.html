@@ -35,9 +35,9 @@
                 <div class="row d-flex align-items-center justify-content-between">
                     <a href="equipamentos.html" class="col-4"><i class="fas back-icon fa-chevron-left"></i></a>
 
-                    <div class="title-header-wallet col-4">
+                    <h1 class="col-4">
                         AGENDAMENTOS
-                    </div>
+                    </h1>
 
                     <div class="dropd-profile col-4 d-flex justify-content-end"></div>
                 </div>
@@ -52,81 +52,59 @@
 
         <div class="pt-4 container">
             <!-- Filtros -->
-            <div class="d-flex align-items-end justify-content-between row">
-                <div class="col-6">
-                    <div class="letters">
-                        <label for="searchBar" class="btn-titles"><i class="fas fa-search icon-titles"></i>Procurar
-                            por:</label>
-                    </div>
-                    <div class="form-group w-100">
-                        <input class="form-control rounded-0 search-bar-wallet style-color-light" id="searchBar"
-                            type="search" aria-label="Pesquisar"
-                            placeholder="Pesquise por Equipamento, Categoria ou Patrimônio" />
-                    </div>
+            <div id="filters" class="d-flex align-items-end justify-content-between row mb-4">
+                <div class="col-8 col-md-6 col-sm-4 d-flex flex-column align-content-end">
+                    <label for="searchBar">
+                        <i class="fas fa-search"></i>
+                        Procurar por:
+                    </label>
+                    <input id="searchBar" class="px-3 py-2 rounded" placeholder="Pesquise por Equipamento" />
                 </div>
 
-                <div class="col-2">
-                    <div class="letters">
-                        <label for="start-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
-                            Início</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="start-dp" class="thisMonthFirstDay datejs border-0 pointer colordate">
-                    </div>
+                <div class="col-2 col-md-3 col-sm-4">
+                    <label for="start-dp">
+                        <i class="fas fa-calendar-alt"></i>
+                        Data Início
+                    </label>
+                    <input type="text" id="start-dp" class="thisMonthFirstDay px-3 py-2 rounded w-100 datejs">
                 </div>
 
-                <div class="col-2">
-                    <div class="letters">
-                        <label for="end-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
-                            Fim</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="end-dp" class="thisMonthLastDay datejs border-0 pointer colordate">
-                    </div>
-                </div>
-
-                <div class="col-2 mb-4">
-                    <div class="form-inline d-flex justify-content-between" role="group">
-                        <button type="button" class="btn btn-search style-search-clear">Buscar</button>
-                        <button type="button" class="btn btn-clear style-color-light">Limpar</button>
-                    </div>
+                <div class="col-2 col-md-3 col-sm-4">
+                    <label for="end-dp">
+                        <i class="fas fa-calendar-alt icon-titles"></i>
+                        Data Fim
+                    </label>
+                    <input type="text" id="end-dp" class="thisMonthLastDay px-3 py-2 rounded w-100 datejs">
                 </div>
             </div>
 
-            <!-- Table -->
-            <div class="row wallet">
-                <div class="col">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr class="wallet-title">
-                                <th scope="col">Equipamento</th>
-                                <th scope="col">Categoria</th>
-                                <th scope="col">Quantidade</th>
-                                <th scope="col">Data que Agendou</th>
-                                <th scope="col">Dia do Agendamento</th>
-                                <th scope="col">Hora de Retirada</th>
-                                <th scope="col">Hora da Devolução</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Câmera Nikon D5300</th>
-                                <td>Câmeras</td>
-                                <td>3</td>
-                                <td>17/05/2019</td>
-                                <td>18/05/2019</td>
-                                <td>07:00</td>
-                                <td>13:00</td>
-                                <td>Devolução</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card-item p-3">
+                <div class="header-card d-flex justify-content-between align-items-center">
+                    <h2>Canon 4D</h2>
+                    <i class="fas fa-chevron-down expand"></i>
+                </div>
+                <div class="body-card d-none">
+                    <hr>
+                    <div class="d-flex flex-column mt-3">
+                        <h3>Categoria</h3>
+                        <div class="dataInfo mb-2">Câmeras</div>
+                        <h3>Quantidade</h3>
+                        <div class="dataInfo mb-2">3</div>
+                        <h3>Data que Agendou</h3>
+                        <div class="dataInfo mb-2">25/11/2019</div>
+                        <h3>Dia do Agendamento</h3>
+                        <div class="dataInfo mb-2">26/11/2019</div>
+                        <h3>Hora da Retirada</h3>
+                        <div class="dataInfo mb-2">07:00:00</div>
+                        <h3>Hora da Devolução</h3>
+                        <div class="dataInfo mb-2">13:00:00</div>
+                        <h3>Status</h3>
+                        <div class="dataInfo mb-2">Agendado</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Mobile -->
     <div class="container-fluid d-block d-sm-none">
         <header class="header p-3 header-mobile-cont row">
@@ -134,159 +112,14 @@
                 <a href="equipamentos.html"><i class="fas fa-arrow-left d-flex h-100 d-flex align-items-center"
                         id="return"></i></a>
                 <div id="navbar-title w-100 d-flex justify-content-center">AGENDAMENTOS</div>
-                <a href="#" class="menu-mobile-icon"><i class="fas fa-bars d-flex h-100 d-flex align-items-center"></i></a>
+                <a href="#" class="menu-mobile-icon"><i
+                        class="fas fa-bars d-flex h-100 d-flex align-items-center"></i></a>
             </div>
         </header>
 
         <div class="menu-drop-mobile" style="display: none">
-            <div id="menu-mobile" class="row d-flex flex-column">
-
-            </div>
+            <div id="menu-mobile" class="row d-flex flex-column"></div>
         </div>
-
-        <!-- BARRA DE PESQUISA -->
-        <div class="search-bar">
-            <div class="search-bar-content p-3">
-                <!-- BOTÃO DE PESQUISA -->
-                <div class="d-flex align-items-center justify-content-start">
-                    <label for="searchbar" class="m-0"><i name="search" class="fas fa-search btn-with-icon"></i></label>
-                    <!-- Caixaa de pesquisa -->
-                    <input type="text" id="searchbar" name="search" class="pl-3 search-input" placeholder="Pesquisar">
-                </div>
-                <!-- botão de filtro -->
-                <div class="dropleft">
-                    <button class="btn-with-icon p-0 dropleft" id="filter-btn" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i name="filter" class="fas fa-filter"></i>
-                    </button>
-                    <div class="p-3 dropdown-menu dropdown-menu-left shadow-none drop-filter shadow-none"
-                        aria-labelledby="filter-btn">
-                        <div class="dropfilter-header">Filtrar por:</div>
-                        <hr class="my-2">
-                        <a href="#" class="d-block p-2 rounded ">Equipamento</a>
-                        <a href="#" class="d-block p-2 rounded ">Período</a>
-                        <a href="#" class="d-block p-2 rounded ">Devolução</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- BOTÕES DE DATA -->
-        <div class="pt-4 container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <div class="letters">
-                        <label for="start-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
-                            Início</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="start-dp" class="today datejs border-0 colordate">
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="letters">
-                        <label for="end-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
-                            Fim</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="end-dp" class="tomorrow datejs border-0 colordate">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIV ENVOLTÓRIA DA LISTA DE ITENS -->
-        <div class="equipment">
-
-            <!-- LISTA DE ITENS -->
-            <ul class="equipment-list">
-
-                <!-- Os ID's estão definidos manualmente, por uma questão ilustrativa -->
-                <li class="equipment-list-item">
-                    <span class="equip-row">
-                        <span class="equip-name"> Câmera Nikon D5300 </span>
-                        <ion-icon name="arrow-dropdown" class="show-more hidn" id="details-1"
-                            onclick="toggleDetails(this)"></ion-icon>
-                    </span>
-                    <div class="equip-details" id="">
-                        Patrimônio: 130738299<br>
-                        Data: 17/05/2019<br>
-                        Períodos: Manhã<br>
-                        Devolução: Aguardando<br>
-                    </div>
-                </li>
-
-                <li class="equipment-list-item">
-                    <span class="equip-row">
-                        <span class="equip-name"> Câmera Canon EOS Rebel T6 Ef-s </span>
-                        <ion-icon name="arrow-dropdown" class="show-more hidn" id="details-2"
-                            onclick="toggleDetails(this)"></ion-icon>
-                    </span>
-                    <div class="equip-details">
-                        Patrimônio: 130738299<br>
-                        Data: 17/05/2019<br>
-                        Períodos: Manhã<br>
-                        Devolução: Aguardando<br>
-                    </div>
-                </li>
-
-                <li class="equipment-list-item">
-                    <span class="equip-row">
-                        <span class="equip-name"> Lente Canon 800mm </span>
-                        <ion-icon name="arrow-dropdown" class="show-more hidn" id="show-details-3"
-                            onclick="toggleDetails(this)"></ion-icon>
-                    </span>
-                    <div class="equip-details">
-                        Patrimônio: 130738299<br>
-                        Data: 17/05/2019<br>
-                        Períodos: Manhã<br>
-                        Devolução: Aguardando<br>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
-
-        <script>
-            function showDetails(x) {
-                x.classList.remove('hidn') // Remove a classe hidn para que o toggleDetails saiba que a div de detalhes foi mostrada
-                x.setAttribute('name', 'arrow-dropup') // Muda o icone da seta
-                x.setAttribute('name', 'arrow-dropup') // Muda o icone da seta
-
-                var divDetails =
-                    x.parentNode
-                        .parentNode
-                        .querySelector('.equip-details')
-                // Viaja pela DOM até encontrar a div dos detalhes
-
-                divDetails.style.display = "block"
-                // Altera o display de "none" para "block"
-            }
-
-            function hideDetails(x) {
-                x.classList.add('hidn');
-                x.setAttribute('name', 'arrow-dropdown')
-
-                var divDetails =
-                    x.parentNode
-                        .parentNode
-                        .querySelector('.equip-details')
-
-                divDetails.style.display = "none"
-            }
-
-            function toggleDetails(x) {
-                // Condicional para identificar se a div está aparecendo ou não
-                if (x.classList.contains('hidn')) {
-                    showDetails(x) // Caso não, a função showDetails será chamada, para mostrar os detalhes
-                }
-                else {
-                    hideDetails(x) // Caso sim, a função hideDetails será chamada, para esconder os detalhes
-                }
-            }
-        </script>
-
     </div>
 
     <!-- JavaScript (Opcional) -->
@@ -312,8 +145,6 @@
     <script src="js/js.cookie.min.js"></script>
     <script src="js/autenticacao.js"></script>
     <script type="text/javascript" src="js/profile-menu.js"></script>
-
-    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 </body>
 
 </html>
