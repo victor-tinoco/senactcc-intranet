@@ -70,9 +70,9 @@ function ApiAgendamento() {
         })
     }
 
-    api.Listar = function (acaoSucesso, acaoErro) {
+    api.Listar = function (filter, initdate, enddate, acaoSucesso, acaoErro) {
         $.ajax({
-            url: urlBaseApiAgendamento,
+            url: urlBaseApiAgendamento + "?filtro=" + filter + "&filtroinicio=" + initdate + "&filtrofim=" + enddate,
             method: "GET",
             success: function (data) { acaoSucesso(data); },
             error: function (data) { acaoErro(data); }

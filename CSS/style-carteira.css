@@ -75,3 +75,18 @@ hr {
 	margin: 10px 0px;
 	border: 0.5px solid #e0e0e0;
 }
+
+.searchBar-mobile {
+    background-color: #e2e2e2;
+    color: #005593
+}
+.searchBar-mobile input {
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: #414141;
+    font-size: 16px;
+}
+.searchBar-mobile i {
+    font-size: 18px;
+}
