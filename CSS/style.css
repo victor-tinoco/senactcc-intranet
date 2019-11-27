@@ -10,9 +10,9 @@ a {
 }
 
 textarea, input, select {
-    box-shadow: 0 0 0 0 !important;
-    border: 0 none !important;
-    outline: 0 !important;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0 ;
 }
 
 .header {

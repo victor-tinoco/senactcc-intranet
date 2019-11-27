@@ -3,7 +3,7 @@ $(function () {
 })
 
 function updateCards(){
-	const filtro = (screen.width <= 576) ? $('.searchBar-mobile').val() : $('#searchBar').val(); //campo de pesquisa mobile;
+	const filtro = (screen.width <= 576) ? $('#searchBar-mobile').val() : $('#searchBar').val(); //campo de pesquisa mobile;
 	let filtroinicio = (screen.width <= 576) ? $('#start-dp-mobile').datepicker('getDate') : $('#start-dp').datepicker('getDate'); //campo de pesquisa mobile;
 	let filtrofim = (screen.width <= 576) ? $('#end-dp-mobile').datepicker('getDate') : $('#end-dp').datepicker('getDate'); //campo de pesquisa mobile;
 
@@ -55,7 +55,7 @@ $('#start-dp, #end-dp, #start-dp-mobile, #end-dp-mobile').change(function(){
 	updateCards();
 })
 
-$('#searchBar, .searchBar-mobile').keyup(function(){
+$('#searchBar, #searchBar-mobile').keyup(function(){
 	updateCards();
 })
 
