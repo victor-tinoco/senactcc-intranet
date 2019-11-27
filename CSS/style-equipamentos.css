@@ -144,44 +144,19 @@ body {
     font-size: 18px;
     margin: 0;
     color: #005593;
-    outline: 0
+    outline: 0 !important;
 }
 
   /* Mobile filter css*/
-  .drop-filter {
-    background-color: #e2e2e2;
-    border-radius: 0;
-    color: #005593;
-    border: #005593 1px solid;
-}
-
-.drop-filter hr {
-    border-color: #005593;
+.drop-filter {
+    background-color: #fff;
+    color: #7c7c7c;
+    border-radius: 3px;
+    box-shadow:  0 1px 5px rgba(0, 0, 0, 0.15);
+    padding: 15px;
 }
 
 .drop-filter a {
-    color:#005593;
-    font-size: 16px
-}
-
-.selected {
-    font-weight: bold
-}
-
-.not-selected:active,.not-selected:focus,.not-selected:hover {
-    background-color: #005593;
-    color: #e2e2e2;
-    text-decoration: none
-}
-
-.drop-filter a:active,.drop-filter a:focus,.drop-filter a:hover {
-    text-decoration: none;
-}
-
-.dropfilter-header {
     font-size: 16px;
-    text-transform: uppercase;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+    text-decoration: none;
 }

@@ -13,7 +13,8 @@ function ListCategories() {
             var html = '<div class="section d-block">' + categoria.Nome + '</div>';
             text += html
         })
-        $('.categories-list').html(text);
+        $('.categories-list').append(text);
+        $('.drop-filter').append(text);
 
         $('.section').click(function (){
             $('.section').each(function (){ 
