@@ -22,7 +22,7 @@ Neste repositório se encontra o sistema web intranet.
 - Ajax - Para requisições assíncronas principalmente para conexão com *Web APIs*
 
 ## Versionamento
-Usamos o Git para controles de versão. Inicialmente o projeto foi estruturado e desenvolvido num [repositório](https://dev.azure.com/teambluescreen/Projeto%20Integrador/_git/Intranet) no Azure Repos, que posteriormente foi importado aqui.
+Usamos o Git para controles de versão. Inicialmente o projeto foi estruturado e desenvolvido num [repositório](https://dev.azure.com/teambluescreen/Projeto%20Integrador/_git/Intranet) no Azure DevOps, que posteriormente foi importado aqui.
 
 ## Autores
 - **Victor Martins Tinoco** - [victrmart](https://github.com/victrmart/)
